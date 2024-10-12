@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/features/common_utils/run_usecase_mixin.dart';
+import 'package:flutter_template/features/count_log/domain/features/count_log_creator.dart';
+import 'package:flutter_template/features/count_log/domain/provider/count_log_provider.dart';
 import 'package:flutter_template/features/counter/application/state/count_provider.dart';
 import 'package:flutter_template/features/counter/domain/repository/count_repository_provider.dart';
 import 'package:flutter_template/features/counter/domain/entity/count.dart';
@@ -29,15 +31,26 @@ class CounterUsecase with RunUsecaseMixin {
         //loadingControllerを渡しているため、実行中はローディング表示される
         loadingController: _loadingController,
         action: () async {
+          final previousValue = count.value;
+          final newValue = previousValue + 1;
           //valueを更新したCountを作成
           final newCount =
-              CountUpdator.update(count: count, newValue: count.value + 1);
+              CountUpdator.update(count: count, newValue: newValue);
 
           //1秒待つ
           await Future.delayed(const Duration(seconds: 1));
 
           //値を更新したCountを保存
           await _ref.read(counterRepositoryProvider).saveCount(newCount);
+
+          //countLogを作成
+          final countLog = CountLogCreator.create(
+              previousValue: previousValue, newValue: newValue);
+
+          //notifierを更新
+          await _ref
+              .read(countLogListProvider.notifier)
+              .addCountLog(countLog: countLog);
         });
     //countProviderを更新
     _invalidateCountProvider();
