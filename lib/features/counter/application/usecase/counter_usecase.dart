@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/features/common_utils/run_usecase_mixin.dart';
 import 'package:flutter_template/features/count_log/domain/features/count_log_creator.dart';
 import 'package:flutter_template/features/count_log/domain/provider/count_log_provider.dart';
-import 'package:flutter_template/features/counter/application/state/count_provider.dart';
+import 'package:flutter_template/features/counter/application/state/count/count_provider.dart';
 import 'package:flutter_template/features/counter/domain/repository/count_repository_provider.dart';
 import 'package:flutter_template/features/counter/domain/entity/count.dart';
 import 'package:flutter_template/features/counter/domain/features/count_updater.dart';
