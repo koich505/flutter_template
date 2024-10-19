@@ -16,6 +16,7 @@ class FailureSnackBar extends SnackBar {
     ScaffoldMessengerState scaffoldMessenger, {
     required String message,
   }) {
+    scaffoldMessenger.hideCurrentSnackBar();
     scaffoldMessenger.showSnackBar(FailureSnackBar._(message: message));
   }
 }
