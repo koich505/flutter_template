@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/presentation/page/loading_page.dart';
-import 'package:flutter_template/features/common_utils/page_state/theme_provider.dart';
+import 'package:flutter_template/application/state/app_scaffold/theme_provider.dart';
 import 'package:flutter_template/presentation/router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

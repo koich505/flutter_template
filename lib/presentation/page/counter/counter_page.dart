@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_template/features/app_scaffold/application/state/localized_strings.dart';
-import 'package:flutter_template/features/counter/application/state/count/count_provider.dart';
+import 'package:flutter_template/application/state/app_scaffold/localized_strings.dart';
+import 'package:flutter_template/application/state/count/count_provider.dart';
 import 'package:flutter_template/presentation/constants/size.dart';
 import 'package:flutter_template/presentation/page/common_components/big_text.dart';
 import 'package:flutter_template/presentation/page/common_components/gap.dart';

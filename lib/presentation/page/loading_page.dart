@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/features/common_utils/page_state/overlay_loading.dart';
+import 'package:flutter_template/application/state/app_scaffold/overlay_loading.dart';
 import 'package:flutter_template/presentation/constants/brand_color.dart';
 
 class LoadingScreen extends ConsumerWidget {

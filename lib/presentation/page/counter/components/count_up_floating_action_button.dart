@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/features/app_scaffold/application/state/localized_strings.dart';
-import 'package:flutter_template/features/common_utils/presentation_mixin.dart';
-import 'package:flutter_template/features/counter/application/usecase/counter_usecase.dart';
-import 'package:flutter_template/features/counter/domain/entity/count.dart';
+import 'package:flutter_template/application/state/app_scaffold/localized_strings.dart';
+import 'package:flutter_template/application/mixin/presentation_mixin.dart';
+import 'package:flutter_template/application/usecase/counter/counter_usecase.dart';
+import 'package:flutter_template/domain/entity/count/count.dart';
 
 //押すとカウントを増やすボタン
 class CountUpFloatingActionButton extends ConsumerWidget
