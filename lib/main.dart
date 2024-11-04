@@ -7,6 +7,11 @@ import 'package:flutter_template/provider_overrides.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  //firebaseの初期化
+  //await Firebase.initializeApp(
+  //options: DefaultFirebaseOptions.currentPlatform,
+  //);
+
   Widget app = ScreenUtilInit(
     minTextAdapt: true,
     splitScreenMode: true,
