@@ -16,7 +16,8 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
-      "program": "lib/main.dart"
+      "program": "lib/main.dart",
+      "args": ["-d", "64AA2A2C-6F1F-411F-A0C7-BFD6C5AF4661"]
     }
   ]
 }

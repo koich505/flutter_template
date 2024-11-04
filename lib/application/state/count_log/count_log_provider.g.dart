@@ -6,7 +6,7 @@ part of 'count_log_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$countLogListHash() => r'f735da86d91250b153e3c058a569c50cb248c718';
+String _$countLogListHash() => r'10c2d3b9cca7c2f976b649e24edaf81a794c6d25';
 
 /// See also [CountLogList].
 @ProviderFor(CountLogList)

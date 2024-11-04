@@ -20,6 +20,7 @@ CountLog _$CountLogFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CountLog {
+  @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   int get previousValue => throw _privateConstructorUsedError;
   int get newValue => throw _privateConstructorUsedError;
@@ -35,7 +36,10 @@ abstract class $CountLogCopyWith<$Res> {
   factory $CountLogCopyWith(CountLog value, $Res Function(CountLog) then) =
       _$CountLogCopyWithImpl<$Res, CountLog>;
   @useResult
-  $Res call({DateTime createdAt, int previousValue, int newValue});
+  $Res call(
+      {@DateTimeConverter() DateTime createdAt,
+      int previousValue,
+      int newValue});
 }
 
 /// @nodoc
@@ -80,7 +84,10 @@ abstract class _$$CountLogImplCopyWith<$Res>
       __$$CountLogImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime createdAt, int previousValue, int newValue});
+  $Res call(
+      {@DateTimeConverter() DateTime createdAt,
+      int previousValue,
+      int newValue});
 }
 
 /// @nodoc
@@ -119,7 +126,7 @@ class __$$CountLogImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CountLogImpl implements _CountLog {
   const _$CountLogImpl(
-      {required this.createdAt,
+      {@DateTimeConverter() required this.createdAt,
       required this.previousValue,
       required this.newValue});
 
@@ -127,6 +134,7 @@ class _$CountLogImpl implements _CountLog {
       _$$CountLogImplFromJson(json);
 
   @override
+  @DateTimeConverter()
   final DateTime createdAt;
   @override
   final int previousValue;
@@ -172,7 +180,7 @@ class _$CountLogImpl implements _CountLog {
 
 abstract class _CountLog implements CountLog {
   const factory _CountLog(
-      {required final DateTime createdAt,
+      {@DateTimeConverter() required final DateTime createdAt,
       required final int previousValue,
       required final int newValue}) = _$CountLogImpl;
 
@@ -180,6 +188,7 @@ abstract class _CountLog implements CountLog {
       _$CountLogImpl.fromJson;
 
   @override
+  @DateTimeConverter()
   DateTime get createdAt;
   @override
   int get previousValue;

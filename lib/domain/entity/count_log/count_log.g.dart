@@ -8,14 +8,15 @@ part of 'count_log.dart';
 
 _$CountLogImpl _$$CountLogImplFromJson(Map<String, dynamic> json) =>
     _$CountLogImpl(
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      previousValue: json['previousValue'] as int,
-      newValue: json['newValue'] as int,
+      createdAt:
+          const DateTimeConverter().fromJson(json['createdAt'] as String),
+      previousValue: (json['previousValue'] as num).toInt(),
+      newValue: (json['newValue'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$CountLogImplToJson(_$CountLogImpl instance) =>
     <String, dynamic>{
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'previousValue': instance.previousValue,
       'newValue': instance.newValue,
     };

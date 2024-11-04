@@ -8,6 +8,7 @@ import 'package:flutter_template/presentation/page/common_components/big_text.da
 import 'package:flutter_template/presentation/page/common_components/gap.dart';
 import 'package:flutter_template/presentation/page/common_components/small_text.dart';
 import 'package:flutter_template/presentation/page/counter/components/count_up_floating_action_button.dart';
+import 'package:flutter_template/presentation/page/counter/count_log_list_view.dart';
 
 class CounterPage extends ConsumerWidget {
   const CounterPage({
@@ -29,13 +30,16 @@ class CounterPage extends ConsumerWidget {
           ),
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 BigText(
                     text: localizedStrings.counterPage.countUpDescriptionText),
                 //BigTextとSmallTextの縦の隙間を埋めるwidget
                 Gap.h(RawInt.p32.h),
                 SmallText(text: count.value.toString()),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: const CountLogListView()),
               ],
             ),
           ),

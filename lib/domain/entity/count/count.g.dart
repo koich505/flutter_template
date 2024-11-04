@@ -8,7 +8,7 @@ part of 'count.dart';
 
 _$CountImpl _$$CountImplFromJson(Map<String, dynamic> json) => _$CountImpl(
       updatedAt: json['updatedAt'],
-      value: json['value'] as int,
+      value: (json['value'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$CountImplToJson(_$CountImpl instance) =>

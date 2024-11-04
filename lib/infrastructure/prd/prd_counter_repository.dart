@@ -1,5 +1,5 @@
 import 'package:flutter_template/domain/entity/app_exception.dart';
-import 'package:flutter_template/domain/repository/count/count_repository_provider.dart';
+import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
 import 'package:flutter_template/domain/features/count/count_converter.dart';
 import 'package:flutter_template/infrastructure/constants/counter_repository_constants.dart';
