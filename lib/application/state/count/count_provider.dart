@@ -1,6 +1,6 @@
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
-import 'package:flutter_template/domain/features/count/count_creator.dart';
+import 'package:flutter_template/domain/features/creator/count_creator.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'count_provider.g.dart';

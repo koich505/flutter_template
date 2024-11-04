@@ -1,7 +1,7 @@
 import 'package:flutter_template/domain/entity/app_exception.dart';
+import 'package:flutter_template/domain/features/converter/shared_preferences_converter.dart';
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
-import 'package:flutter_template/domain/features/count/count_converter.dart';
 import 'package:flutter_template/infrastructure/constants/counter_repository_constants.dart';
 import 'package:flutter_template/presentation/page/counter/text/page_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,8 +27,10 @@ class PrdCounterRepository implements CounterRepository {
       if (countString == null) return null;
 
       //string型で保存したcountをCount型に変換する
-      final count = const CountConverter()
-          .fromSharedPreferencesString(countString: countString);
+      final countMap =
+          const SharedPreferencesStringConverter().toJson(countString);
+      final count = Count.fromJson(countMap);
+
       return count;
     } catch (e) {
       //setIntが失敗した場合は、AppExceptionをthrowする
@@ -42,8 +44,9 @@ class PrdCounterRepository implements CounterRepository {
     try {
       //countをsharedPreferencesに保存する
       //stringに変換してから保存する
+      final countMap = count.toJson();
       final countString =
-          CountConverter.toSharedPreferencesString(count: count);
+          const SharedPreferencesStringConverter().fromJson(countMap);
 
       //保存
       await pref.setString(key, countString);

@@ -20,7 +20,9 @@ Count _$CountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Count {
-  dynamic get updatedAt => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @IntConverter()
   int get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +35,8 @@ abstract class $CountCopyWith<$Res> {
   factory $CountCopyWith(Count value, $Res Function(Count) then) =
       _$CountCopyWithImpl<$Res, Count>;
   @useResult
-  $Res call({dynamic updatedAt, int value});
+  $Res call(
+      {@DateTimeConverter() DateTime updatedAt, @IntConverter() int value});
 }
 
 /// @nodoc
@@ -49,14 +52,14 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? updatedAt = freezed,
+    Object? updatedAt = null,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
-      updatedAt: freezed == updatedAt
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as DateTime,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -72,7 +75,8 @@ abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
       __$$CountImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic updatedAt, int value});
+  $Res call(
+      {@DateTimeConverter() DateTime updatedAt, @IntConverter() int value});
 }
 
 /// @nodoc
@@ -86,14 +90,14 @@ class __$$CountImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? updatedAt = freezed,
+    Object? updatedAt = null,
     Object? value = null,
   }) {
     return _then(_$CountImpl(
-      updatedAt: freezed == updatedAt
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as DateTime,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -105,14 +109,18 @@ class __$$CountImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CountImpl implements _Count {
-  const _$CountImpl({required this.updatedAt, required this.value});
+  const _$CountImpl(
+      {@DateTimeConverter() required this.updatedAt,
+      @IntConverter() required this.value});
 
   factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
       _$$CountImplFromJson(json);
 
   @override
-  final dynamic updatedAt;
+  @DateTimeConverter()
+  final DateTime updatedAt;
   @override
+  @IntConverter()
   final int value;
 
   @override
@@ -125,14 +133,14 @@ class _$CountImpl implements _Count {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CountImpl &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(updatedAt), value);
+  int get hashCode => Object.hash(runtimeType, updatedAt, value);
 
   @JsonKey(ignore: true)
   @override
@@ -150,14 +158,16 @@ class _$CountImpl implements _Count {
 
 abstract class _Count implements Count {
   const factory _Count(
-      {required final dynamic updatedAt,
-      required final int value}) = _$CountImpl;
+      {@DateTimeConverter() required final DateTime updatedAt,
+      @IntConverter() required final int value}) = _$CountImpl;
 
   factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
 
   @override
-  dynamic get updatedAt;
+  @DateTimeConverter()
+  DateTime get updatedAt;
   @override
+  @IntConverter()
   int get value;
   @override
   @JsonKey(ignore: true)

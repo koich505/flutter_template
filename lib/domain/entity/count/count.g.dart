@@ -7,12 +7,13 @@ part of 'count.dart';
 // **************************************************************************
 
 _$CountImpl _$$CountImplFromJson(Map<String, dynamic> json) => _$CountImpl(
-      updatedAt: json['updatedAt'],
-      value: (json['value'] as num).toInt(),
+      updatedAt:
+          const DateTimeConverter().fromJson(json['updatedAt'] as String),
+      value: const IntConverter().fromJson(json['value'] as String),
     );
 
 Map<String, dynamic> _$$CountImplToJson(_$CountImpl instance) =>
     <String, dynamic>{
-      'updatedAt': instance.updatedAt,
-      'value': instance.value,
+      'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
+      'value': const IntConverter().toJson(instance.value),
     };
