@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/application/state/app_scaffold/localized_strings.dart';
 import 'package:flutter_template/application/mixin/presentation_mixin.dart';
+import 'package:flutter_template/application/usecase/ad/ad_usecase.dart';
 import 'package:flutter_template/application/usecase/counter/counter_usecase.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
 
@@ -24,6 +25,7 @@ class CountUpFloatingActionButton extends ConsumerWidget
         //mixinのexecuteを使ってカウントを増やす処理を実行する
         execute(context, action: () async {
           await ref.read(counterUsecaseProvider).countUp(count: count);
+          await ref.read(adUsecaseProvider).callInterstitialAdProcess();
         },
             //成功時のメッセージ
             //失敗時のメッセージはrepositoryのAppExeptionから渡ってくる

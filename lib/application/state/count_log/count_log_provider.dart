@@ -1,5 +1,5 @@
 import 'package:flutter_template/domain/entity/count_log/count_log.dart';
-import 'package:flutter_template/domain/repository/count/count_log_repository_provider.dart';
+import 'package:flutter_template/domain/repository/count_log/count_log_repository_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'count_log_provider.g.dart';

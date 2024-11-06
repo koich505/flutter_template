@@ -11,6 +11,9 @@ void main() async {
   //環境変数の初期化
   await dotenv.load(fileName: '.env');
 
+  //google広告の初期化
+  //await MobileAds.instance.initialize();
+
   //firebaseの初期化
   //await Firebase.initializeApp(
   //options: DefaultFirebaseOptions.currentPlatform,

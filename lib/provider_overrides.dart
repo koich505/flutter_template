@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/domain/enum/environment_enum.dart';
-import 'package:flutter_template/domain/repository/count/count_log_repository_provider.dart';
+import 'package:flutter_template/domain/repository/ad/interstitial_ad_repository.dart';
+import 'package:flutter_template/domain/repository/count_log/count_log_repository_provider.dart';
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/infrastructure/mock/mock_count_repository.dart';
 import 'package:flutter_template/infrastructure/prd/prd_count_log_repository.dart';
 import 'package:flutter_template/infrastructure/prd/prd_counter_repository.dart';
+import 'package:flutter_template/infrastructure/prd/prd_interstitial_ad_repository.dart';
 import 'package:flutter_template/infrastructure/sqflite_instance/instance.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -23,7 +25,9 @@ class PrdProviderOverrides {
     final db = await _sqliteDatabase();
     return [
       counterRepositoryProvider.overrideWithValue(PrdCounterRepository()),
-      countLogRepositoryProvider.overrideWithValue(PrdCounterLogRepository(db))
+      countLogRepositoryProvider.overrideWithValue(PrdCounterLogRepository(db)),
+      interStitialAdRepositoryProvider
+          .overrideWithValue(PrdInterstitialAdRepository())
     ];
   }
 

@@ -2,12 +2,14 @@ import 'package:flutter_template/domain/entity/app_exception.dart';
 import 'package:flutter_template/domain/features/converter/shared_preferences_converter.dart';
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
-import 'package:flutter_template/infrastructure/constants/counter_repository_constants.dart';
+import 'package:flutter_template/infrastructure/constants/repository_constants.dart';
 import 'package:flutter_template/presentation/page/counter/text/page_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //実行環境のrepository
-class PrdCounterRepository implements CounterRepository {
+class PrdCounterRepository
+    with RepositoryConstants
+    implements CounterRepository {
   //sharedPreferencesのインスタンスを取得する
   Future<SharedPreferences> get pref async {
     final pref = await SharedPreferences.getInstance();
@@ -15,7 +17,7 @@ class PrdCounterRepository implements CounterRepository {
   }
 
   //sharedPreferencesに保存する際のkey
-  String get key => CounterConstants().countKey;
+  String get key => counterConstants.countKey;
 
   @override
   Future<Count?> fetch() async {

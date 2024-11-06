@@ -3,7 +3,7 @@ import 'package:flutter_template/application/mixin/run_usecase_mixin.dart';
 import 'package:flutter_template/domain/features/creator/count_log_creator.dart';
 import 'package:flutter_template/application/state/count_log/count_log_provider.dart';
 import 'package:flutter_template/application/state/count/count_provider.dart';
-import 'package:flutter_template/domain/repository/count/count_log_repository_provider.dart';
+import 'package:flutter_template/domain/repository/count_log/count_log_repository_provider.dart';
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/domain/entity/count/count.dart';
 import 'package:flutter_template/domain/features/updater/count_updater.dart';

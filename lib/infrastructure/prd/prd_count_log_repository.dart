@@ -1,5 +1,5 @@
 import 'package:flutter_template/domain/entity/count_log/count_log.dart';
-import 'package:flutter_template/domain/repository/count/count_log_repository_provider.dart';
+import 'package:flutter_template/domain/repository/count_log/count_log_repository_provider.dart';
 import 'package:flutter_template/infrastructure/constants/counter_repository_constants.dart';
 import 'package:flutter_template/infrastructure/constants/repository_constants.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
