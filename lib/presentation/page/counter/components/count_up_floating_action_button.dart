@@ -29,7 +29,7 @@ class CountUpFloatingActionButton extends ConsumerWidget
         },
             //成功時のメッセージ
             //失敗時のメッセージはrepositoryのAppExeptionから渡ってくる
-            successMessage: localizedStrings.snackbar.countSaveSuccess);
+            successMessage: localizedStrings.snackbarSuccess.countSaveSuccess);
       },
       tooltip: localizedStrings.toolTip.floatingActionButtonTooltip,
       child: const Icon(Icons.add),

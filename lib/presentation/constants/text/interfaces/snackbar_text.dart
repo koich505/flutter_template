@@ -1,7 +1,4 @@
-abstract interface class SnackbarText {
-  //成功
+abstract interface class SnackbarSuccessText {
+  //カウントの保存に成功
   String get countSaveSuccess;
-  //失敗
-  String get countSaveFailed;
-  String get countFetchFailed;
 }

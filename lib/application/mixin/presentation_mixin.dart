@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/domain/entity/app_exception.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_template/application/state/app_scaffold/localized_strings.dart';
+import 'package:flutter_template/domain/entity/error/interface/custom_exception.dart';
 import 'package:flutter_template/presentation/snackbar/failure_snackbar.dart';
 import 'package:flutter_template/presentation/snackbar/success_snackbar.dart';
 
@@ -10,6 +12,9 @@ mixin PresentationMixin {
     required Future<void> Function() action,
     required String successMessage,
   }) async {
+    final container = ProviderContainer();
+    final localizedStrings = container.read(localizedStringProvider);
+
     final scaffoldMessenger = ScaffoldMessenger.of(context);
     try {
       await action();
@@ -18,11 +23,12 @@ mixin PresentationMixin {
         scaffoldMessenger,
         message: successMessage,
       );
-    } on AppException catch (e) {
+    } on CustomException catch (e) {
       //失敗した場合は、FailureSnackBarを表示する
       FailureSnackBar.show(
         scaffoldMessenger,
-        message: e.toString(),
+        message: localizedStrings.snackbarFailure
+            .getMessage(e.errorCode.errorMessageType),
       );
     }
   }
