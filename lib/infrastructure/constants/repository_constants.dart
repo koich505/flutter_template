@@ -1,10 +1,8 @@
-import 'package:flutter_template/infrastructure/constants/ad_repository_constants.dart';
 import 'package:flutter_template/infrastructure/constants/count_log_repository_constants.dart';
-import 'package:flutter_template/infrastructure/constants/counter_repository_constants.dart';
+import 'package:flutter_template/infrastructure/constants/shared_preferences_key.dart';
 
 mixin class RepositoryConstants {
-  CounterConstants get counterConstants => CounterConstants();
+  RepositoryConstants._();
   CountLogConstants get countLogConstants => CountLogConstants();
-
-  AdRepositoryConstants get adRepositoryConstants => AdRepositoryConstants();
+  SharedPreferencesKeys get sharedPreferencesKeys => SharedPreferencesKeys();
 }

@@ -19,7 +19,7 @@ class PrdInterstitialAdRepository
   }
 
   //sharedPreferencesに保存する際のkey
-  String get key => adRepositoryConstants.showInterstitialKey;
+  String get key => sharedPreferencesKeys.showInterstitialKey;
 
   final int maxFailedLoadAttempts = 3;
 

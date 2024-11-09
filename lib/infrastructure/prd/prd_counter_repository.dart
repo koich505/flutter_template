@@ -17,7 +17,7 @@ class PrdCounterRepository
   }
 
   //sharedPreferencesに保存する際のkey
-  String get key => counterConstants.countKey;
+  String get key => sharedPreferencesKeys.countKey;
 
   @override
   Future<Count?> fetch() async {

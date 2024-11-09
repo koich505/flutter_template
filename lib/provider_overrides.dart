@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/domain/enum/environment_enum.dart';
 import 'package:flutter_template/domain/repository/ad/interstitial_ad_repository.dart';
+import 'package:flutter_template/domain/repository/brand_color_repository.dart';
 import 'package:flutter_template/domain/repository/count_log/count_log_repository_provider.dart';
 import 'package:flutter_template/domain/repository/count/counter_repository_provider.dart';
 import 'package:flutter_template/infrastructure/mock/mock_count_repository.dart';
+import 'package:flutter_template/infrastructure/prd/prd_brand_color_repository.dart';
 import 'package:flutter_template/infrastructure/prd/prd_count_log_repository.dart';
 import 'package:flutter_template/infrastructure/prd/prd_counter_repository.dart';
 import 'package:flutter_template/infrastructure/prd/prd_interstitial_ad_repository.dart';
@@ -27,7 +29,8 @@ class PrdProviderOverrides {
       counterRepositoryProvider.overrideWithValue(PrdCounterRepository()),
       countLogRepositoryProvider.overrideWithValue(PrdCounterLogRepository(db)),
       interStitialAdRepositoryProvider
-          .overrideWithValue(PrdInterstitialAdRepository())
+          .overrideWithValue(PrdInterstitialAdRepository()),
+      brandColorRepositoryProvider.overrideWithValue(PrdBrandColorRepository())
     ];
   }
 
