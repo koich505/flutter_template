@@ -37,17 +37,20 @@ class PrdCounterRepository
 
   @override
   Future<void> saveCount(Count count) async {
-    final pref = await this.pref;
-    //countをsharedPreferencesに保存する
-    //stringに変換してから保存する
-    final countMap = count.toJson();
-    final countString =
-        const SharedPreferencesStringConverter().fromJson(countMap);
+    try {
+      final pref = await this.pref;
+      //countをsharedPreferencesに保存する
+      //stringに変換してから保存する
+      final countMap = count.toJson();
+      final countString =
+          const SharedPreferencesStringConverter().fromJson(countMap);
 
-    //保存
-    //setIntが失敗した場合は、Exceptionをthrowする
-    await pref.setString(key, countString).catchError(
-        throw const SharedpreferencesException(
-            SharedPreferencesErrorCode.dataSaveError));
+      //保存
+      await pref.setString(key, countString);
+    } catch (e) {
+      //saveCountが失敗した場合は、Exceptionをthrowする
+      throw const SharedpreferencesException(
+          SharedPreferencesErrorCode.dataSaveError);
+    }
   }
 }

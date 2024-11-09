@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/presentation/page/loading_page.dart';
-import 'package:flutter_template/application/state/app_scaffold/theme_provider.dart';
+import 'package:flutter_template/presentation/constants/theme.dart';
+import 'package:flutter_template/presentation/page/loading_screen.dart';
 import 'package:flutter_template/presentation/router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,8 +12,6 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     //router
     final router = ref.watch(goRouterProvider);
-    //theme
-    final ThemeData themeData = ref.read(themeProvider);
 
     return MaterialApp(
         //ページをタップするとfocusを外す
@@ -22,8 +20,7 @@ class MyApp extends ConsumerWidget {
             //loading画面をメインの画面に重ねる
             child: Stack(children: [
               MaterialApp.router(
-                //以下の階層でthemeが適用される
-                theme: themeData,
+                theme: AppTheme.lightThemeData(),
                 routerConfig: router,
               ),
               const LoadingScreen(),

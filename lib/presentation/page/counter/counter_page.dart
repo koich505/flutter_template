@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_template/application/state/app_scaffold/localized_strings.dart';
 import 'package:flutter_template/application/state/count/count_provider.dart';
 import 'package:flutter_template/presentation/constants/size.dart';
-import 'package:flutter_template/presentation/page/common_components/big_text.dart';
+import 'package:flutter_template/presentation/constants/text/app_strings.dart';
+import 'package:flutter_template/presentation/constants/text_style/main_text_style.dart';
 import 'package:flutter_template/presentation/page/common_components/gap.dart';
-import 'package:flutter_template/presentation/page/common_components/small_text.dart';
 import 'package:flutter_template/presentation/page/counter/components/count_up_floating_action_button.dart';
 import 'package:flutter_template/presentation/page/counter/count_log_list_view.dart';
 
@@ -19,7 +18,7 @@ class CounterPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     //providerの初期化
     //言語ファイル
-    final localizedStrings = ref.watch(localizedStringProvider);
+    final localizedStrings = appStrings();
 
     final count = ref.watch(countProvider);
 
@@ -32,13 +31,18 @@ class CounterPage extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                BigText(
-                    text: localizedStrings.counterPage.countUpDescriptionText),
+                Text(
+                  localizedStrings.counterPage.countUpDescriptionText,
+                  style: MainTextStyle.m,
+                ),
                 //BigTextとSmallTextの縦の隙間を埋めるwidget
-                Gap.h(RawInt.p32.h),
-                SmallText(text: count.value.toString()),
+                Gap.h(SizePoint.d32.h),
+                Text(
+                  count.value.toString(),
+                  style: MainTextStyle.l,
+                ),
                 SizedBox(
-                    height: MediaQuery.of(context).size.height / 2,
+                    height: SizePoint.displayHeightHalf(context),
                     child: const CountLogListView()),
               ],
             ),
